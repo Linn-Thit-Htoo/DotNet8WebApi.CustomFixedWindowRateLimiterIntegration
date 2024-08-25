@@ -1,12 +1,11 @@
-﻿namespace DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Enums
+﻿namespace DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Enums;
+
+public enum EnumStatusCode
 {
-    public enum EnumStatusCode
-    {
-        None,
-        GET,
-        POST,
-        PUT,
-        PATCH,
-        DELETE
-    }
+    None,
+    GET,
+    POST,
+    PUT,
+    PATCH,
+    DELETE
 }
