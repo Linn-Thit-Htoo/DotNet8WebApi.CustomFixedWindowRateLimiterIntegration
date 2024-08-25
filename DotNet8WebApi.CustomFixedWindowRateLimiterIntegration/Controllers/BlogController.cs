@@ -1,23 +1,22 @@
-﻿namespace DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Controllers;
+﻿using DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Services;
+
+namespace DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
 public class BlogController : ControllerBase
 {
-    private readonly HttpClient _httpClient;
+    private readonly FixedWindowRateLimiterService _fixedWindowRateLimiterService;
 
-    public BlogController(HttpClient httpClient)
+    public BlogController(FixedWindowRateLimiterService fixedWindowRateLimiterService)
     {
-        _httpClient = httpClient;
+        _fixedWindowRateLimiterService = fixedWindowRateLimiterService;
     }
 
     [HttpGet]
     public async Task<IActionResult> GetBlogs()
     {
-        HttpResponseMessage response = await _httpClient.PostAsync(
-            "/api/RateLimiting/fixed-window",
-            null
-        );
+        var response = await _fixedWindowRateLimiterService.ApplyFixedWindowRateLimiterAsync();
         var responseJson = await response.Content.ReadAsStringAsync();
         var statusCode = response.StatusCode;
 
