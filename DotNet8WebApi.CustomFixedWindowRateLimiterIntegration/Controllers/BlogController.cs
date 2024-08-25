@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Net;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Controllers;
 
@@ -17,7 +17,10 @@ public class BlogController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetBlogs()
     {
-        HttpResponseMessage response = await _httpClient.PostAsync("/api/RateLimiting/fixed-window", null);
+        HttpResponseMessage response = await _httpClient.PostAsync(
+            "/api/RateLimiting/fixed-window",
+            null
+        );
         var responseJson = await response.Content.ReadAsStringAsync();
         var statusCode = response.StatusCode;
 
