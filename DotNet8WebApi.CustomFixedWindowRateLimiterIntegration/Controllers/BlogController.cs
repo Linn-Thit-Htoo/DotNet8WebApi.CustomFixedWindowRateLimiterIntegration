@@ -1,6 +1,4 @@
-﻿using DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Services;
-
-namespace DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Controllers;
+﻿namespace DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
