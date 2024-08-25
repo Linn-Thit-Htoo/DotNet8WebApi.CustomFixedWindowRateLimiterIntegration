@@ -1,7 +1,4 @@
-﻿using DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Enums;
-using Newtonsoft.Json;
-
-namespace DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Services
+﻿namespace DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Services
 {
     public class HttpClientService
     {
