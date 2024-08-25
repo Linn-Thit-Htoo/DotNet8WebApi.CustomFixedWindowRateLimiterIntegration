@@ -45,7 +45,7 @@ namespace DotNet8WebApi.CustomFixedWindowRateLimiterIntegration.Services
                     break;
             }
 
-            var responseJson = await response.Content.ReadAsStringAsync();
+            var responseJson = await response!.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(responseJson)!;
         }
     }
